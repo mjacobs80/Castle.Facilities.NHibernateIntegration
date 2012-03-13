@@ -59,7 +59,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
-    <DocumentationFile>bin\Debug\Castle.Facilities.NHibernateIntegration.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Castle.Facilities.NHibernateIntegration.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -82,7 +82,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>bin\Release\Castle.Facilities.NHibernateIntegration.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Castle.Facilities.NHibernateIntegration.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
