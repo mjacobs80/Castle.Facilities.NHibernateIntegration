@@ -9975,6 +9975,11 @@
             <param name="projection">The projection.</param>
             <param name="values">The _values.</param>
         </member>
+        <member name="M:NHibernate.Criterion.InExpression.GetElementType(NHibernate.ICriteria,NHibernate.Criterion.ICriteriaQuery)">
+            <summary>
+            Determine the type of the elements in the IN clause.
+            </summary>
+        </member>
         <member name="T:NHibernate.Criterion.InsensitiveLikeExpression">
             <summary>
             An <see cref="T:NHibernate.Criterion.ICriterion"/> that represents an "like" constraint
@@ -11878,6 +11883,42 @@
             Classic SUM sqlfunction that return types as it was done in Hibernate 3.1
             </summary>
         </member>
+        <member name="T:NHibernate.Dialect.Function.EmulatedLengthSubstringFunction">
+            <summary>
+            Provides a substring implementation of the form substring(expr, start, length)
+            for SQL dialects where the length argument is mandatory. If this is called
+            from HQL with only two arguments, this implementation will generate the length
+            parameter as (len(expr) + 1 - start).
+            </summary>
+        </member>
+        <member name="T:NHibernate.Dialect.Function.StandardSQLFunction">
+            <summary>
+            Provides a standard implementation that supports the majority of the HQL
+            functions that are translated to SQL.
+            </summary>
+            <remarks>
+            The Dialect and its sub-classes use this class to provide details required
+            for processing of the associated function.
+            </remarks>
+        </member>
+        <member name="M:NHibernate.Dialect.Function.StandardSQLFunction.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the StandardSQLFunction class.
+            </summary>
+            <param name="name">SQL function name.</param>
+        </member>
+        <member name="M:NHibernate.Dialect.Function.StandardSQLFunction.#ctor(System.String,NHibernate.Type.IType)">
+            <summary>
+            Initializes a new instance of the StandardSQLFunction class.
+            </summary>
+            <param name="name">SQL function name.</param>
+            <param name="typeValue">Return type for the fuction.</param>
+        </member>
+        <member name="M:NHibernate.Dialect.Function.EmulatedLengthSubstringFunction.#ctor">
+            <summary>
+            Initializes a new instance of the EmulatedLengthSubstringFunction class.
+            </summary>
+        </member>
         <member name="T:NHibernate.Dialect.Function.NoArgSQLFunction">
             <summary>
             Summary description for NoArgSQLFunction.
@@ -11902,29 +11943,6 @@
             The Dialect and its sub-classes use this class to provide details required
             for processing of the associated function.
             </remarks>	
-        </member>
-        <member name="T:NHibernate.Dialect.Function.StandardSQLFunction">
-            <summary>
-            Provides a standard implementation that supports the majority of the HQL
-            functions that are translated to SQL.
-            </summary>
-            <remarks>
-            The Dialect and its sub-classes use this class to provide details required
-            for processing of the associated function.
-            </remarks>
-        </member>
-        <member name="M:NHibernate.Dialect.Function.StandardSQLFunction.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the StandardSQLFunction class.
-            </summary>
-            <param name="name">SQL function name.</param>
-        </member>
-        <member name="M:NHibernate.Dialect.Function.StandardSQLFunction.#ctor(System.String,NHibernate.Type.IType)">
-            <summary>
-            Initializes a new instance of the StandardSQLFunction class.
-            </summary>
-            <param name="name">SQL function name.</param>
-            <param name="typeValue">Return type for the fuction.</param>
         </member>
         <member name="M:NHibernate.Dialect.Function.StandardSafeSQLFunction.#ctor(System.String,System.Int32)">
             <summary>
@@ -29276,6 +29294,12 @@
             </summary>
             <param name="collection"></param>
             <returns></returns>
+        </member>
+        <member name="M:NHibernate.Linq.TypeHelperExtensionMethods.As``1(System.Object)">
+            <summary>
+            Peform an unsafe cast to T (i.e. (T)source). This is only for
+            syntactically more pleasing code.
+            </summary>
         </member>
         <member name="T:NHibernate.Loader.Collection.BasicCollectionJoinWalker">
             <summary>
