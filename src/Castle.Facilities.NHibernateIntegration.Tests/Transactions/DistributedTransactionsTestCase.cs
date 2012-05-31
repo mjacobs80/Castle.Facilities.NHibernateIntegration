@@ -25,7 +25,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Transactions
 	using NUnit.Framework;
 	using Services.Transaction;
 
-	[TestFixture, Explicit("Build server Dtc's issues.")]
+	[TestFixture]
 	public class DistributedTransactionsTestCase : AbstractNHibernateTestCase
 	{
 		protected override string ConfigurationFile
@@ -35,8 +35,6 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Transactions
 
 		protected override void ConfigureContainer()
 		{
-			container.AddFacility(new TransactionFacility());
-
 			container.Register(Component.For<RootService2>().Named("root"));
 			container.Register(Component.For<FirstDao2>().Named("myfirstdao"));
 			container.Register(Component.For<SecondDao2>().Named("myseconddao"));

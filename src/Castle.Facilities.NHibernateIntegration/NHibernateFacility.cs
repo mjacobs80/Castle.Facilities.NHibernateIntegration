@@ -251,7 +251,7 @@ namespace Castle.Facilities.NHibernateIntegration
 		/// </summary>
         protected void ConfigureFacility()
 		{
-		    ISessionFactoryResolver sessionFactoryResolver = Kernel.Resolve<ISessionFactoryResolver>();
+		    var sessionFactoryResolver = Kernel.Resolve<ISessionFactoryResolver>();
 
 		    ConfigureReflectionOptimizer();
 

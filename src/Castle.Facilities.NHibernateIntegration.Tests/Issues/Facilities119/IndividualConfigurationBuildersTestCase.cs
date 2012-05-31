@@ -39,7 +39,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities119
 			var configuration1 = container.Resolve<Configuration>("sessionFactory1.cfg");
 			var configuration2 = container.Resolve<Configuration>("sessionFactory2.cfg");
 			var configuration3 = container.Resolve<Configuration>("sessionFactory3.cfg");
-			Assert.AreEqual(configuration1.GetProperty("test"), "test1");
+			Assert.AreEqual(configuration1.GetProperty("test"), null);
 			Assert.AreEqual(configuration2.GetProperty("test"), "test2");
 			Assert.AreEqual(configuration3.GetProperty("test"), "test3");
 		}

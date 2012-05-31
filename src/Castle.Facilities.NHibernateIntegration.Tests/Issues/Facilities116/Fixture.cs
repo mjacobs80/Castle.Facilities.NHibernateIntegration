@@ -66,7 +66,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities116
 		public void Can_create_serialized_file_in_the_disk()
 		{
 			Assert.IsFalse(File.Exists(filename));
-			Configuration cfg = configurationBuilder.GetConfiguration(configuration);
+			configurationBuilder.GetConfiguration(configuration);
 			Assert.IsTrue(File.Exists(filename));
 			BinaryFormatter bf = new BinaryFormatter();
 			Configuration nhConfig;

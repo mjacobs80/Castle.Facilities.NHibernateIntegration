@@ -26,7 +26,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities112
 	using NHibernate;
 	using NUnit.Framework;
 
-	[TestFixture]
+	[TestFixture, Explicit("Should be dropped, too much intrusion.")]
 	public class LazyInitializationTestCase : IssueTestCase
 	{
 		protected override string ConfigurationFile

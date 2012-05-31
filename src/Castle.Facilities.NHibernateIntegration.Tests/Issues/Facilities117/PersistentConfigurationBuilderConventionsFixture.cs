@@ -44,7 +44,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities117
 			var resource = new AssemblyResource("Castle.Facilities.NHibernateIntegration.Tests/Issues/Facilities117/facility.xml");
 			var xmlInterpreter = new XmlInterpreter(resource);
 			xmlInterpreter.ProcessResource(resource, configurationStore, new DefaultKernel());
-			facilityCfg = configurationStore.GetFacilityConfiguration("nhibernatefacility").Children["factory"];
+			facilityCfg = configurationStore.GetFacilityConfiguration(typeof(NHibernateFacility).FullName).Children["factory"];
 		}
 
 		[Test]
