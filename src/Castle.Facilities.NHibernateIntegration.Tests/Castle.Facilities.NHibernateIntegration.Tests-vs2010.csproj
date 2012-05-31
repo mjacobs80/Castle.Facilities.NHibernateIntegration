@@ -98,63 +98,46 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Facilities.AutoTx">
-      <Name>Castle.Facilities.AutoTx</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Facilities.AutoTx.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
-      <Name>Castle.Core</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Facilities.Logging">
-      <Name>Castle.Facilities.Logging</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Facilities.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Services.Logging.Log4netIntegration">
-      <Name>Castle.Services.Logging.Log4netIntegration</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Services.Transaction">
-      <Name>Castle.Services.Transaction</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Services.Transaction.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <Name>Castle.Windsor</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections">
-      <Name>Iesi.Collections</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\Iesi.Collections.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <Name>log4net</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
-      <Name>NHibernate</Name>
       <HintPath>..\..\lib\$(BuildConfigKey)\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <Name>nunit.framework</Name>
       <HintPath>..\..\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="Rhino.Mocks, Version=3.5.0.1, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Rhino.Mocks">
       <HintPath>..\..\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
-    <Reference Include="System">
-      <Name>System</Name>
-    </Reference>
-    <Reference Include="System.configuration" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data">
-      <Name>System.Data</Name>
-    </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Transactions" />
-    <Reference Include="System.Xml">
-      <Name>System.XML</Name>
-    </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractNHibernateTestCase.cs">
