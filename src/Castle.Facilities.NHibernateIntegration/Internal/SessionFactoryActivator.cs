@@ -68,7 +68,12 @@ namespace Castle.Facilities.NHibernateIntegration.Internal
 			RaiseCreatingSessionFactory();
 			var configuration = Model.ExtendedProperties[Constants.SessionFactoryConfiguration]
 			                    as Configuration;
-			return configuration.BuildSessionFactory();
+			
+			var sessionFactory = configuration.BuildSessionFactory();
+
+			burden.SetRootInstance(sessionFactory);
+
+			return sessionFactory;
 		}
 	}
 }

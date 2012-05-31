@@ -19,6 +19,8 @@
 
 namespace Castle.Facilities.NHibernateIntegration.Tests
 {
+	using Castle.Facilities.AutoTx;
+
 	using Core.Resource;
 	using NHibernate.Cfg;
 	using NHibernate.Tool.hbm2ddl;
@@ -66,6 +68,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests
 		public virtual void SetUp()
 		{
 			container = new WindsorContainer(new XmlInterpreter(new AssemblyResource(GetContainerFile())));
+			container.AddFacility<TransactionFacility>();
 			ConfigureContainer();
 			ExportDatabaseSchema();
 			OnSetUp();

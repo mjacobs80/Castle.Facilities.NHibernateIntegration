@@ -143,7 +143,8 @@ namespace Castle.Facilities.NHibernateIntegration
 		/// </summary>
 		protected virtual void RegisterComponents()
 		{
-			Kernel.Register(Component.For<NHSessionInterceptor>().Named("nhsession.interceptor"));
+			//Kernel.Register(Component.For<NHSessionInterceptor>().Named("nhsession.interceptor"));
+			Kernel.Register(Component.For<NHSessionInterceptor>());
 			Kernel.ComponentModelBuilder.AddContributor(new NHSessionComponentInspector());
 
 			RegisterDefaultConfigurationBuilder();

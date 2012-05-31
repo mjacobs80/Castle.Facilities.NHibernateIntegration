@@ -42,6 +42,13 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities106
 			Assert.IsNotNull(cfg);
 			string str = cfg.Properties["connection.provider"];
 			Assert.AreEqual("DummyProvider", str);
+
+			str = cfg.Properties["connection.connection_string"];
+			str = cfg.Properties["connection.driver_class"];
+			str = cfg.Properties["dialect"];
+
+			var x = 0;
+			x = 1 + x;
 		}
 	}
 }

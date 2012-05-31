@@ -53,7 +53,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities116
 			var resource = new AssemblyResource("Castle.Facilities.NHibernateIntegration.Tests/Issues/Facilities116/facility.xml");
 			var xmlInterpreter = new XmlInterpreter(resource);
 			xmlInterpreter.ProcessResource(resource, configurationStore, new DefaultKernel());
-			configuration = configurationStore.GetFacilityConfiguration("nhibernatefacility").Children["factory"];
+			configuration = configurationStore.GetFacilityConfiguration(typeof(NHibernateFacility).FullName).Children["factory"];
 			configurationBuilder = new PersistentConfigurationBuilder();
 		}
 
