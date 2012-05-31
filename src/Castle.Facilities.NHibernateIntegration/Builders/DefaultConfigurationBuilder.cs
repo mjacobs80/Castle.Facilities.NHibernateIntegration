@@ -133,7 +133,7 @@ namespace Castle.Facilities.NHibernateIntegration.Builders
 
 			foreach (IConfiguration item in facilityConfig.Children)
 			{
-				String assembly = item.Value;
+				String assembly = item.Value.Trim();
 
 				cfg.AddAssembly(assembly);
 

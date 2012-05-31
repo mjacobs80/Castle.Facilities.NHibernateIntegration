@@ -17,7 +17,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Registration
         {
             var container = new WindsorContainer();
 
-            container.AddFacility<NHibernateFacility>("nhibernatefacility", f => f.ConfigurationBuilder<TestConfigurationBuilder>());
+            container.AddFacility<NHibernateFacility>(f => f.ConfigurationBuilder<TestConfigurationBuilder>());
 
             var sessionManager = container.Resolve<ISessionManager>();
             sessionManager.OpenSession();
@@ -31,7 +31,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Registration
 
             var container = new WindsorContainer(new XmlInterpreter(new AssemblyResource(file)));
 
-            container.AddFacility<NHibernateFacility>("nhibernatefacility", f => f.ConfigurationBuilder<DummyConfigurationBuilder>());
+            container.AddFacility<NHibernateFacility>(f => f.ConfigurationBuilder<DummyConfigurationBuilder>());
 
             Assert.AreEqual(typeof(DummyConfigurationBuilder), container.Resolve<IConfigurationBuilder>().GetType());
         }
@@ -43,7 +43,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Registration
 
             var container = new WindsorContainer(new XmlInterpreter(new AssemblyResource(file)));
 
-            container.AddFacility<NHibernateFacility>("nhibernatefacility", f => f.IsWeb().ConfigurationBuilder<DummyConfigurationBuilder>());
+            container.AddFacility<NHibernateFacility>(f => f.IsWeb().ConfigurationBuilder<DummyConfigurationBuilder>());
 
             var sessionStore = container.Resolve<ISessionStore>();
 
@@ -57,7 +57,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Registration
 
             var container = new WindsorContainer(new XmlInterpreter(new AssemblyResource(file)));
 
-            container.AddFacility<NHibernateFacility>("nhibernatefacility", f => f.ConfigurationBuilder(GetType()));
+            container.AddFacility<NHibernateFacility>(f => f.ConfigurationBuilder(GetType()));
         }
     }
 

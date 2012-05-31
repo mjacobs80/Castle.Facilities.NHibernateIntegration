@@ -13,6 +13,8 @@
 	{
 		internal const string SessionRequiredMetaInfo = "nhfacility.SessionRequiredMetaInfo";
 
+		private const string ComponentModelName = "session.interceptor";
+
 		/// <summary>
 		/// Process the model
 		/// </summary>
@@ -20,7 +22,7 @@
 		{
 			if (model.Implementation.IsDefined(typeof(NHSessionAwareAttribute), true))
 			{
-				model.Dependencies.Add(new DependencyModel(DependencyType.Service, null, typeof(NHSessionInterceptor), false));
+				model.Dependencies.Add(new DependencyModel(ComponentModelName, typeof(NHSessionInterceptor), false));
 
 				var methods = model
 					.Implementation

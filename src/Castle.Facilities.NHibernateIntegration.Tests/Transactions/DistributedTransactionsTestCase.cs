@@ -35,7 +35,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Transactions
 
 		protected override void ConfigureContainer()
 		{
-			container.AddFacility("transactions", new TransactionFacility());
+			container.AddFacility(new TransactionFacility());
 
 			container.Register(Component.For<RootService2>().Named("root"));
 			container.Register(Component.For<FirstDao2>().Named("myfirstdao"));

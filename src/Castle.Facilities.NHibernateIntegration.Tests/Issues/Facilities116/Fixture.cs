@@ -25,6 +25,9 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities116
 	using System.Runtime.Serialization.Formatters.Binary;
 	using System.Threading;
 	using Builders;
+
+	using Castle.MicroKernel;
+
 	using Core.Configuration;
 	using Core.Resource;
 	using MicroKernel.SubSystems.Configuration;
@@ -49,7 +52,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities116
 			var configurationStore = new DefaultConfigurationStore();
 			var resource = new AssemblyResource("Castle.Facilities.NHibernateIntegration.Tests/Issues/Facilities116/facility.xml");
 			var xmlInterpreter = new XmlInterpreter(resource);
-			xmlInterpreter.ProcessResource(resource, configurationStore);
+			xmlInterpreter.ProcessResource(resource, configurationStore, new DefaultKernel());
 			configuration = configurationStore.GetFacilityConfiguration("nhibernatefacility").Children["factory"];
 			configurationBuilder = new PersistentConfigurationBuilder();
 		}
