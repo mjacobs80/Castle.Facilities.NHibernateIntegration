@@ -16,9 +16,7 @@ REM ****************************************************************************
 
 ECHO This script builds the project in Release configuration
 
-SET CLICKTOBUILD=1
 CALL buildscripts\build.cmd NET40
-SET CLICKTOBUILD=
 
 IF %ERRORLEVEL% NEQ 0 GOTO err
 ECHO **************************************************************

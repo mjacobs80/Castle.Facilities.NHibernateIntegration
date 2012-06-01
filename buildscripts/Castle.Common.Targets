@@ -82,12 +82,12 @@ limitations under the License.
 		<BuildScriptsPath Condition="'$(BuildScriptsPath)' ==''">$(RootPath)/buildscripts</BuildScriptsPath>
 		<ToolsPath Condition="'$(ToolsPath)' == ''">$(RootPath)/tools</ToolsPath>
 		<SolutionName Condition="'$(SolutionName)' == ''">$(ProjectName)</SolutionName>
-		<SolutionPath Condition="'$(SolutionPath)' == '' and '$(SolutionName)' != ''">$(RootPath)/$(SolutionName)-vs2010.sln</SolutionPath>
-		<SolutionPath Condition="'$(SolutionPath)' == ''">$(RootPath)/$(ProjectName)-vs2010.sln</SolutionPath>
+		<SolutionPath Condition="'$(SolutionPath)' == '' and '$(SolutionName)' != ''">$(RootPath)/$(SolutionName).sln</SolutionPath>
+		<SolutionPath Condition="'$(SolutionPath)' == ''">$(RootPath)/$(ProjectName).sln</SolutionPath>
 		<TestResultsPath Condition="'$(TestResultsPath)' == ''">$(OutputPath)/test-results</TestResultsPath>
 	</PropertyGroup>
 
-	
+
 	<!-- AssemblyInfo Properties -->
 	<PropertyGroup>
 		<AssemblyInfoFile Condition="'$(AssemblyInfoFile)' == ''">AssemblyInfo.cs</AssemblyInfoFile>
@@ -99,14 +99,14 @@ limitations under the License.
 		<AllowPartiallyTrustedCallers Condition="'$(AllowPartiallyTrustedCallers)' == ''">false</AllowPartiallyTrustedCallers>
 	</PropertyGroup>
 
-	
+
 	<!-- Signing Properties-->
 	<PropertyGroup>
 		<SignAssembly Condition="'$(SignAssembly)' == ''">true</SignAssembly>
 		<AssemblyOriginatorKeyFile>$(BuildScriptsPath)/CastleKey.snk</AssemblyOriginatorKeyFile>
 	</PropertyGroup>
 
-	
+
 	<!-- Versioning Properties -->
 	<PropertyGroup>
 		<Project_Major Condition="'$(Project_Major)' == ''">1</Project_Major>
@@ -114,7 +114,7 @@ limitations under the License.
 		<Project_Build Condition="'$(Project_Build)' == ''">3</Project_Build>
 	</PropertyGroup>
 
-	
+
 	<!-- Testing Properties -->
 	<PropertyGroup>
 		<TestRunner_Enabled Condition="'$(TestRunner_Enabled)' == ''">true</TestRunner_Enabled>
@@ -127,7 +127,7 @@ limitations under the License.
 		<!-- Controls whether tests will be run under NCover to generate coverage logs -->
 	</PropertyGroup>
 
-	
+
 	<!-- 3rd Party Program Paths -->
 	<PropertyGroup>
 		<NUnitPath Condition="'$(NUnitPath)' == ''">$(ToolsPath)/nunit/bin</NUnitPath>
@@ -135,7 +135,7 @@ limitations under the License.
 		<MSBuildCommunityTasksPath Condition="'$(MSBuildCommunityTasksPath)' == ''">$(ToolsPath)/MSBuildCommunityTasks</MSBuildCommunityTasksPath>
 	</PropertyGroup>
 
-	
+
 	<!-- Re-define CoreCompileDependsOn to ensure the assemblyinfo files are updated before compilation. -->
 	<PropertyGroup>
 		<CoreCompileDependsOn>
@@ -148,12 +148,12 @@ limitations under the License.
 	<!-- Import 3rd party targets -->
 	<Import Project="$(MSBuildCommunityTasksPath)/MSBuild.Community.Tasks.Targets" />
 
-	
+
 	<!-- Updates the AssemblyInfo. The inputs are the same as the CoreCompileDependsOn target
 	to ensure that we only ever update the AssemblyInfo files if a compile is actually going to take place.-->
 	<Target
 		Name="UpdateAssemblyInfoFiles"
-		DependsOnTargets="GetBuildRevision" 
+		DependsOnTargets="GetBuildRevision"
 		Inputs="$(MSBuildAllProjects);
 					@(Compile);
 					@(ManifestResourceWithNoCulture);
@@ -162,7 +162,7 @@ limitations under the License.
 					@(ManifestNonResxWithNoCultureOnDisk);
 					@(ReferencePath);
 					@(CompiledLicenseFile);
-					@(EmbeddedDocumentation);                
+					@(EmbeddedDocumentation);
 					@(CustomAdditionalCompileInputs)"
 		Outputs="@(IntermediateAssembly);$(AssemblyInfoFile)"
 		>
@@ -180,10 +180,10 @@ limitations under the License.
 			CLSCompliant="$(CLSCompliant)"
 			AllowPartiallyTrustedCallers="$(AllowPartiallyTrustedCallers)"
 			/>
-	
+
 	</Target>
 
-	
+
 	<!-- Sets property $(Build_Revision)-->
 	<Target
 		Name="GetBuildRevision"
@@ -195,11 +195,11 @@ limitations under the License.
 					@(ManifestNonResxWithNoCultureOnDisk);
 					@(ReferencePath);
 					@(CompiledLicenseFile);
-					@(EmbeddedDocumentation);                
+					@(EmbeddedDocumentation);
 					@(CustomAdditionalCompileInputs)"
 		Outputs="@(IntermediateAssembly)"
 		>
-		
+
 		<PropertyGroup>
 			<Build_Number Condition="'$(Build_Number)' == ''">0</Build_Number>
 			<Build_Revision>$(Build_Number)</Build_Revision>
