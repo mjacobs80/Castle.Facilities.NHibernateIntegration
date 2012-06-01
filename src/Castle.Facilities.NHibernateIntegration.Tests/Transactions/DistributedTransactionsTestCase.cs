@@ -41,7 +41,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Transactions
 			container.Register(Component.For<OrderDao2>().Named("myorderdao"));
 		}
 
-		[Test]
+		[Test, Explicit("Requires MSDTC to be running.")]
 		public void SuccessfulSituationWithTwoDatabases()
 		{
 			RootService2 service = container.Resolve<RootService2>();
@@ -70,7 +70,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Transactions
 			Assert.AreEqual(1, orders.Length);
 		}
 
-		[Test]
+		[Test, Explicit("Requires MSDTC to be running.")]
 		public void ExceptionOnEndWithTwoDatabases()
 		{
 			RootService2 service = container.Resolve<RootService2>();
@@ -106,7 +106,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Transactions
 			Assert.AreEqual(0, orders.Length);
 		}
 
-		[Test]
+		[Test, Explicit("Requires MSDTC to be running.")]
 		public void SuccessfulSituationWithTwoDatabasesStateless()
 		{
 			RootService2 service = container.Resolve<RootService2>();
@@ -135,7 +135,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Transactions
 			Assert.AreEqual(1, orders.Length);
 		}
 
-		[Test, Ignore]
+		[Test, Ignore("Unresolved failed test.")]
 		// TODO: System.Data.SqlClient.SqlException : New request is not allowed to start because it should come with valid transaction descriptor.
 		public void ExceptionOnEndWithTwoDatabasesStateless()
 		{
