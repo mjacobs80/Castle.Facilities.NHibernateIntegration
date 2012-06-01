@@ -32,7 +32,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Registration
             var file = "Castle.Facilities.NHibernateIntegration.Tests/MinimalConfiguration.xml";
 
             var container = new WindsorContainer(new XmlInterpreter(new AssemblyResource(file)));
-			container.AddFacility<TransactionFacility>();
+			container.AddFacility<AutoTxFacility>();
 
             container.AddFacility<NHibernateFacility>(f => f.ConfigurationBuilder<DummyConfigurationBuilder>());
 
@@ -45,7 +45,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Registration
             var file = "Castle.Facilities.NHibernateIntegration.Tests/MinimalConfiguration.xml";
 
             var container = new WindsorContainer(new XmlInterpreter(new AssemblyResource(file)));
-			container.AddFacility<TransactionFacility>();
+			container.AddFacility<AutoTxFacility>();
 
             container.AddFacility<NHibernateFacility>(f => f.IsWeb().ConfigurationBuilder<DummyConfigurationBuilder>());
 

@@ -68,7 +68,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests
 		public virtual void SetUp()
 		{
 			container = new WindsorContainer(new XmlInterpreter(new AssemblyResource(GetContainerFile())));
-			container.AddFacility<TransactionFacility>();
+			container.AddFacility<AutoTxFacility>();
 			ConfigureContainer();
 			ExportDatabaseSchema();
 			OnSetUp();
