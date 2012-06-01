@@ -106,9 +106,6 @@
     <Reference Include="Castle.Facilities.Logging">
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Facilities.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Services.Logging.Log4netIntegration">
-      <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Services.Transaction">
       <HintPath>..\..\lib\$(BuildConfigKey)\Castle.Services.Transaction.dll</HintPath>
     </Reference>
@@ -117,9 +114,6 @@
     </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\lib\$(BuildConfigKey)\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\lib\$(BuildConfigKey)\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\lib\$(BuildConfigKey)\NHibernate.dll</HintPath>
@@ -238,9 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <EmbeddedResource Include="Issues\Facilities102\facility.xml" />
   </ItemGroup>
   <ItemGroup>

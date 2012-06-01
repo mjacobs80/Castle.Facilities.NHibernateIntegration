@@ -109,9 +109,6 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\lib\$(BuildConfigKey)\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\lib\$(BuildConfigKey)\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\..\lib\$(BuildConfigKey)\NHibernate.dll</HintPath>
     </Reference>

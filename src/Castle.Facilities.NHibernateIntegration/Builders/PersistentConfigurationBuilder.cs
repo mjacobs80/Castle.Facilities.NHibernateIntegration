@@ -21,8 +21,10 @@ namespace Castle.Facilities.NHibernateIntegration.Builders
 {
 	using System.Collections.Generic;
 	using System.Text.RegularExpressions;
+
+	using Castle.Core.Logging;
+
 	using Core.Configuration;
-	using log4net;
 	using NHibernate.Cfg;
 	using Persisters;
 
@@ -33,7 +35,7 @@ namespace Castle.Facilities.NHibernateIntegration.Builders
 	{
 		private const string DEFAULT_EXTENSION = "dat";
 
-		private static readonly ILog log = LogManager.GetLogger(typeof(PersistentConfigurationBuilder));
+		private ILogger _Logger = NullLogger.Instance;
 
 		private readonly IConfigurationPersister configurationPersister;
 
@@ -62,7 +64,10 @@ namespace Castle.Facilities.NHibernateIntegration.Builders
 		/// <returns>NHibernate Configuration</returns>
 		public override Configuration GetConfiguration(IConfiguration config)
 		{
-			log.Debug("Building the Configuration");
+			if (_Logger.IsDebugEnabled)
+			{
+				_Logger.Debug("Building the Configuration");
+			}
 
 			string filename = GetFilenameFrom(config);
 			IList<string> dependentFilenames = GetDependentFilenamesFrom(config);
@@ -70,7 +75,10 @@ namespace Castle.Facilities.NHibernateIntegration.Builders
 			Configuration cfg;
 			if (configurationPersister.IsNewConfigurationRequired(filename, dependentFilenames))
 			{
-				log.Debug("Configuration is either old or some of the dependencies have changed");
+				if (_Logger.IsDebugEnabled)
+				{
+					_Logger.Debug("Configuration is either old or some of the dependencies have changed");
+				}
 				cfg = base.GetConfiguration(config);
 				configurationPersister.WriteConfiguration(filename, cfg);
 			}
