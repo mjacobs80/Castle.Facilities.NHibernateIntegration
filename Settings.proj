@@ -32,10 +32,10 @@ limitations under the License.
 	<!-- Project Properties -->
 	<PropertyGroup>
 		<ProjectName>Castle.Facilities.NHibernateIntegration</ProjectName>
-		
+
 		<!-- Versioning -->
-		<Project_Major>1</Project_Major>
-		<Project_Minor>1</Project_Minor>
+		<Project_Major>3</Project_Major>
+		<Project_Minor>3</Project_Minor>
 		<Project_Build>0</Project_Build>
 
 		<!-- Project folders -->
@@ -45,7 +45,7 @@ limitations under the License.
 
 	<Target Name="_InitializeDynamicProperties">
 		<PropertyGroup>
-			<!-- 
+			<!--
 			Specify additional items to package here, they are added to the package
 			in addition to automatically detected dependencies.
 			-->
