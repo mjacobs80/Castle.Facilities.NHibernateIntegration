@@ -5,7 +5,7 @@
 
 	Project Settings file for VS and external build files
 
-Copyright 2004-2010 Castle Project - http://www.castleproject.org/
+Copyright 2004-2012 Castle Project - http://www.castleproject.org/
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -33,15 +33,28 @@ limitations under the License.
 	<PropertyGroup>
 		<ProjectName>Castle.Facilities.NHibernateIntegration</ProjectName>
 
+		<!-- Used for display purposes. Should start with a space to look better -->
+		<BuildName></BuildName>
 		<!-- Versioning -->
 		<Project_Major>3</Project_Major>
 		<Project_Minor>3</Project_Minor>
 		<Project_Build>1</Project_Build>
 
+		<AssemblyVersion_Build>0</AssemblyVersion_Build> <!-- By default it's (and should be) equal to $(Project_Build) -->
+
 		<!-- Project folders -->
 		<BuildScriptsPath Condition="'$(BuildScriptsPath)' ==''">$(RootPath)\buildscripts</BuildScriptsPath>
 
 	</PropertyGroup>
+
+	<ItemGroup>
+		<!--
+		Specify additional items to package here, they are added to the package
+		in addition to automatically detected dependencies.
+		The items are resolved relative to $(OutputPath)
+		-->
+		<PackageFiles Include="$(OutputPath)*.pdb" />
+	</ItemGroup>
 
 	<Target Name="_InitializeDynamicProperties">
 		<PropertyGroup>
@@ -52,6 +65,12 @@ limitations under the License.
 			<PackageFiles>$(OutputPath)NHibernate*.dll;$(OutputPath)Iesi*.dll</PackageFiles>
 		</PropertyGroup>
 	</Target>
+
+	<!-- Import project specific settings for given Visual Studio project -->
+	<Import
+		Project="$(MSBuildProjectDirectory)\Settings.proj"
+		Condition="'$(TargetFrameworkVersion)' != '' and Exists('$(MSBuildProjectDirectory)\Settings.proj')"
+		/>
 
 
 	<!-- Import framework version specific settings, like Settings-v3.5 or Settings-v4.0 -->
