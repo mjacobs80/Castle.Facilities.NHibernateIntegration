@@ -77,40 +77,40 @@
             <param name="model">The model.</param>
             <param name="store">The meta information store.</param>
         </member>
-        <member name="T:Castle.Facilities.AutoTx.TransactionFacility">
+        <member name="T:Castle.Facilities.AutoTx.AutoTxFacility">
             <summary>
             Augments the kernel to handle transactional components
             </summary>
         </member>
-        <member name="M:Castle.Facilities.AutoTx.TransactionFacility.#ctor">
+        <member name="M:Castle.Facilities.AutoTx.AutoTxFacility.#ctor">
             <summary>
             Constructor.
             </summary>
         </member>
-        <member name="M:Castle.Facilities.AutoTx.TransactionFacility.#ctor(System.Boolean,System.String)">
+        <member name="M:Castle.Facilities.AutoTx.AutoTxFacility.#ctor(System.Boolean,System.String)">
             <summary>
             
             </summary>
-            <param name="allowAccessOutsideRootFolder"><see cref="P:Castle.Facilities.AutoTx.TransactionFacility.AllowAccessOutsideRootFolder"/></param>
+            <param name="allowAccessOutsideRootFolder"><see cref="P:Castle.Facilities.AutoTx.AutoTxFacility.AllowAccessOutsideRootFolder"/></param>
             <param name="rootFolder"></param>
         </member>
-        <member name="M:Castle.Facilities.AutoTx.TransactionFacility.Init">
+        <member name="M:Castle.Facilities.AutoTx.AutoTxFacility.Init">
             <summary>
             Registers the interceptor component, the metainfo store and
             adds a contributor to the ModelBuilder
             </summary>
         </member>
-        <member name="M:Castle.Facilities.AutoTx.TransactionFacility.Dispose">
+        <member name="M:Castle.Facilities.AutoTx.AutoTxFacility.Dispose">
             <summary>
             Disposes the facilitiy.
             </summary>
         </member>
-        <member name="P:Castle.Facilities.AutoTx.TransactionFacility.AllowAccessOutsideRootFolder">
+        <member name="P:Castle.Facilities.AutoTx.AutoTxFacility.AllowAccessOutsideRootFolder">
             <summary>
             This triggers a new file adapter / directory adapter to be created.
             </summary>
         </member>
-        <member name="P:Castle.Facilities.AutoTx.TransactionFacility.RootFolder">
+        <member name="P:Castle.Facilities.AutoTx.AutoTxFacility.RootFolder">
             <summary>
             Gets or sets the root folder for file transactions.
             </summary>

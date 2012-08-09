@@ -142,14 +142,14 @@
             Never returns null.
             </summary>
         </member>
+        <member name="P:Castle.Services.Transaction.ITransaction.IsReadOnly">
+            <summary>
+            Returns true for a read only transaction, false otherwise.
+            </summary>
+        </member>
         <member name="M:Castle.Services.Transaction.TransactionBase.Begin">
             <summary>
             <see cref="M:Castle.Services.Transaction.ITransaction.Begin"/>.
-            </summary>
-        </member>
-        <member name="M:Castle.Services.Transaction.TransactionBase.InnerBegin">
-            <summary>
-            Implementors set <see cref="P:Castle.Services.Transaction.TransactionBase.Status"/>.
             </summary>
         </member>
         <member name="M:Castle.Services.Transaction.TransactionBase.Commit">
@@ -158,19 +158,9 @@
                         modifications
             </summary>
         </member>
-        <member name="M:Castle.Services.Transaction.TransactionBase.InnerCommit">
-            <summary>
-            Implementors should NOT change the base class.
-            </summary>
-        </member>
         <member name="M:Castle.Services.Transaction.TransactionBase.Rollback">
             <summary>
             See <see cref="M:Castle.Services.Transaction.ITransaction.Rollback"/>.
-            </summary>
-        </member>
-        <member name="M:Castle.Services.Transaction.TransactionBase.InnerRollback">
-            <summary>
-            Implementors should NOT change the base class.
             </summary>
         </member>
         <member name="M:Castle.Services.Transaction.TransactionBase.SetRollbackOnly">
@@ -194,6 +184,21 @@
             </summary>
             <param name="s"/>
         </member>
+        <member name="M:Castle.Services.Transaction.TransactionBase.InnerBegin">
+            <summary>
+            Implementors set <see cref="P:Castle.Services.Transaction.TransactionBase.Status"/>.
+            </summary>
+        </member>
+        <member name="M:Castle.Services.Transaction.TransactionBase.InnerCommit">
+            <summary>
+            Implementors should NOT change the base class.
+            </summary>
+        </member>
+        <member name="M:Castle.Services.Transaction.TransactionBase.InnerRollback">
+            <summary>
+            Implementors should NOT change the base class.
+            </summary>
+        </member>
         <member name="P:Castle.Services.Transaction.TransactionBase.Status">
             <summary>
             Returns the current transaction status.
@@ -212,6 +217,11 @@
         <member name="P:Castle.Services.Transaction.TransactionBase.IsAmbient">
             <summary>
             <see cref="P:Castle.Services.Transaction.ITransaction.IsAmbient"/>.
+            </summary>
+        </member>
+        <member name="P:Castle.Services.Transaction.TransactionBase.IsReadOnly">
+            <summary>
+            <see cref="P:Castle.Services.Transaction.ITransaction.IsReadOnly"/>.
             </summary>
         </member>
         <member name="P:Castle.Services.Transaction.TransactionBase.IsRollbackOnlySet">
@@ -896,12 +906,12 @@
             <param name="share"></param>
             <returns></returns>
         </member>
-        <member name="M:Castle.Services.Transaction.FileTransaction.DeleteFileTransactedW(System.String,Castle.Services.Transaction.SafeTxHandle)">
+        <member name="M:Castle.Services.Transaction.FileTransaction.DeleteFileTransactedW(System.String,Castle.Services.Transaction.SafeTransactionHandle)">
             <summary>
             http://msdn.microsoft.com/en-us/library/aa363916(VS.85).aspx
             </summary>
         </member>
-        <member name="M:Castle.Services.Transaction.FileTransaction.CreateDirectoryTransactedW(System.String,System.String,System.IntPtr,Castle.Services.Transaction.SafeTxHandle)">
+        <member name="M:Castle.Services.Transaction.FileTransaction.CreateDirectoryTransactedW(System.String,System.String,System.IntPtr,Castle.Services.Transaction.SafeTransactionHandle)">
             <summary>
             http://msdn.microsoft.com/en-us/library/aa363857(VS.85).aspx
             Creates a new directory as a transacted operation, with the attributes of a specified 
@@ -918,7 +928,7 @@
             <param name="hTransaction">A handle to the transaction. This handle is returned by the CreateTransaction function.</param>
             <returns>True if the call succeeds, otherwise do a GetLastError.</returns>
         </member>
-        <member name="M:Castle.Services.Transaction.FileTransaction.RemoveDirectoryTransactedW(System.String,Castle.Services.Transaction.SafeTxHandle)">
+        <member name="M:Castle.Services.Transaction.FileTransaction.RemoveDirectoryTransactedW(System.String,Castle.Services.Transaction.SafeTransactionHandle)">
             <summary>
             http://msdn.microsoft.com/en-us/library/aa365490(VS.85).aspx
             Deletes an existing empty directory as a transacted operation.
@@ -931,7 +941,7 @@
             <param name="hTransaction">A handle to the transaction. This handle is returned by the CreateTransaction function.</param>
             <returns>True if the call succeeds, otherwise do a GetLastError.</returns>
         </member>
-        <member name="M:Castle.Services.Transaction.FileTransaction.GetFullPathNameTransactedW(System.String,System.Int32,System.Text.StringBuilder,System.IntPtr@,Castle.Services.Transaction.SafeTxHandle)">
+        <member name="M:Castle.Services.Transaction.FileTransaction.GetFullPathNameTransactedW(System.String,System.Int32,System.Text.StringBuilder,System.IntPtr@,Castle.Services.Transaction.SafeTransactionHandle)">
             <summary>
             http://msdn.microsoft.com/en-us/library/aa364966(VS.85).aspx
             Retrieves the full path and file name of the specified file as a transacted operation.
@@ -955,7 +965,7 @@
             <param name="hTransaction"></param>
             <returns>If the function succeeds, the return value is the length, in TCHARs, of the string copied to lpBuffer, not including the terminating null character.</returns>
         </member>
-        <member name="M:Castle.Services.Transaction.FileTransaction.FindFirstFileTransactedW(System.String,Castle.Services.Transaction.FileTransaction.FINDEX_INFO_LEVELS,Castle.Services.Transaction.FileTransaction.WIN32_FIND_DATA@,Castle.Services.Transaction.FileTransaction.FINDEX_SEARCH_OPS,System.IntPtr,System.UInt32,Castle.Services.Transaction.SafeTxHandle)">
+        <member name="M:Castle.Services.Transaction.FileTransaction.FindFirstFileTransactedW(System.String,Castle.Services.Transaction.FileTransaction.FINDEX_INFO_LEVELS,Castle.Services.Transaction.FileTransaction.WIN32_FIND_DATA@,Castle.Services.Transaction.FileTransaction.FINDEX_SEARCH_OPS,System.IntPtr,System.UInt32,Castle.Services.Transaction.SafeTransactionHandle)">
             <param name="lpFileName"></param>
             <param name="fInfoLevelId"></param>
             <param name="lpFindFileData"></param>
@@ -1008,7 +1018,7 @@
             If the function fails, the return value is INVALID_HANDLE_VALUE.
             </returns>
         </member>
-        <member name="M:Castle.Services.Transaction.FileTransaction.CommitTransaction(Castle.Services.Transaction.SafeTxHandle)">
+        <member name="M:Castle.Services.Transaction.FileTransaction.CommitTransaction(Castle.Services.Transaction.SafeTransactionHandle)">
             <summary>
             Requests that the specified transaction be committed.
             </summary>
@@ -1022,7 +1032,7 @@
             For more information, see KTM Security and Access Rights.</param>
             <returns></returns>
         </member>
-        <member name="M:Castle.Services.Transaction.FileTransaction.RollbackTransaction(Castle.Services.Transaction.SafeTxHandle)">
+        <member name="M:Castle.Services.Transaction.FileTransaction.RollbackTransaction(Castle.Services.Transaction.SafeTransactionHandle)">
             <summary>
             Requests that the specified transaction be rolled back. This function is synchronous.
             </summary>
@@ -1032,6 +1042,12 @@
         <member name="P:Castle.Services.Transaction.FileTransaction.IsAmbient">
             <summary>
             Gets whether the transaction is a distributed transaction.
+            </summary>
+        </member>
+        <member name="P:Castle.Services.Transaction.FileTransaction.IsReadOnly">
+            <summary>
+            Gets whether the transaction was started as read only. Currently what this means for the file transactions is utterly
+            undefined and needs fixing. Also, don't set this property, or you will get a <see cref="T:System.InvalidOperationException"/>.
             </summary>
         </member>
         <member name="P:Castle.Services.Transaction.FileTransaction.Name">
@@ -1126,17 +1142,17 @@
             together with native kernel transactions.
             </summary>
         </member>
-        <member name="T:Castle.Services.Transaction.IO.TxAdapterBase">
+        <member name="T:Castle.Services.Transaction.IO.TransactionAdapterBase">
             <summary>
              Adapter base class for the file and directory adapters.
             </summary>
         </member>
-        <member name="P:Castle.Services.Transaction.IO.TxAdapterBase.TxManager">
+        <member name="P:Castle.Services.Transaction.IO.TransactionAdapterBase.TransactionManager">
             <summary>
             Gets the transaction manager, if there is one, or sets it.
             </summary>
         </member>
-        <member name="P:Castle.Services.Transaction.IO.TxAdapterBase.UseTransactions">
+        <member name="P:Castle.Services.Transaction.IO.TransactionAdapterBase.UseTransactions">
             <summary>
              Gets/sets whether to use transactions.
             </summary>
@@ -1243,24 +1259,24 @@
             <param name="filePath">The file path.</param>
             <returns></returns>
         </member>
-        <member name="M:Castle.Services.Transaction.IKernelTransaction.GetHandle(Castle.Services.Transaction.SafeTxHandle@)">
+        <member name="M:Castle.Services.Transaction.IKernelTransaction.GetHandle(Castle.Services.Transaction.SafeTransactionHandle@)">
             <summary>
             Gets a safe transaction handle. If we instead use IntPtr we 
             might not release the transaction handle properly.
             </summary>
             <param name="handle"></param>
         </member>
-        <member name="T:Castle.Services.Transaction.SafeTxHandle">
+        <member name="T:Castle.Services.Transaction.SafeTransactionHandle">
             <summary>
              A safe file handle on the transaction resource.
             </summary>    
         </member>
-        <member name="M:Castle.Services.Transaction.SafeTxHandle.#ctor">
+        <member name="M:Castle.Services.Transaction.SafeTransactionHandle.#ctor">
             <summary>
             Default c'tor
             </summary>
         </member>
-        <member name="M:Castle.Services.Transaction.SafeTxHandle.#ctor(System.IntPtr)">
+        <member name="M:Castle.Services.Transaction.SafeTransactionHandle.#ctor(System.IntPtr)">
             <summary>
              c'tor taking a pointer to a transaction.
             </summary>
@@ -1305,16 +1321,17 @@
         </member>
         <member name="M:Castle.Services.Transaction.ITransactionManager.CreateTransaction(Castle.Services.Transaction.TransactionMode,Castle.Services.Transaction.IsolationMode)">
             <summary>
-            <see cref="M:Castle.Services.Transaction.ITransactionManager.CreateTransaction(Castle.Services.Transaction.TransactionMode,Castle.Services.Transaction.IsolationMode,System.Boolean)"/>.
+            <see cref="M:Castle.Services.Transaction.ITransactionManager.CreateTransaction(Castle.Services.Transaction.TransactionMode,Castle.Services.Transaction.IsolationMode,System.Boolean,System.Boolean)"/>.
             </summary>
         </member>
-        <member name="M:Castle.Services.Transaction.ITransactionManager.CreateTransaction(Castle.Services.Transaction.TransactionMode,Castle.Services.Transaction.IsolationMode,System.Boolean)">
+        <member name="M:Castle.Services.Transaction.ITransactionManager.CreateTransaction(Castle.Services.Transaction.TransactionMode,Castle.Services.Transaction.IsolationMode,System.Boolean,System.Boolean)">
             <summary>
             Creates a transaction.
             </summary>
             <param name="transactionMode">The transaction mode.</param>
             <param name="isolationMode">The isolation mode.</param>
             <param name="isAmbient">if set to <c>true</c>, the TM will create a distributed transaction.</param>
+            <param name="isReadOnly">if set to <c>true</c>, the TM will create a read only transaction.</param>
             <returns>
             null &lt;- If transactions are just supported, but there is no ambient transaction
             null &lt;- If transactions are not supported and there indeed is no ambient transaction (if there is, see exception docs)
@@ -1481,6 +1498,11 @@
             <c>true</c> if a distributed transaction should be created; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="P:Castle.Services.Transaction.TransactionAttribute.ReadOnly">
+            <summary>
+            Gets or sets a value indicating whether the transaction should be read only.
+            </summary>
+        </member>
         <member name="T:Castle.Services.Transaction.TransactionMode">
             <summary>
             The supported transaction mode for the components.
@@ -1525,13 +1547,18 @@
             Iterates over a sequence and performs the action on each.
             </summary>
         </member>
-        <member name="M:Castle.Services.Transaction.Fun.TryLogFail(log4net.ILog,System.Action)">
+        <member name="M:Castle.Services.Transaction.Fun.TryLogFail(Castle.Core.Logging.ILogger,System.Action)">
             <summary>
             Given a logger and action, performs the action and catches + logs exceptions.
             </summary>
             <returns>Whether the lambda was a success or not.</returns>
         </member>
-        <member name="M:Castle.Services.Transaction.Result.Exception(System.Action{System.Exception})">
+        <member name="T:Castle.Services.Transaction.Error">
+            <summary>
+            Error monad
+            </summary>
+        </member>
+        <member name="M:Castle.Services.Transaction.Error.Exception(System.Action{System.Exception})">
             <summary>
             Takes a lambda what to do if the result failed. Returns the result so 
             that it can be managed in whatevery way is needed.
@@ -1539,7 +1566,13 @@
             <param name="a"></param>
             <returns></returns>
         </member>
-        <member name="M:Castle.Services.Transaction.Result`1.Exception(System.Action{System.Exception})">
+        <member name="T:Castle.Services.Transaction.Error`1">
+            <summary>
+            Error monad
+            </summary>
+            <typeparam name="T">Encapsulated success-action parameter type</typeparam>
+        </member>
+        <member name="M:Castle.Services.Transaction.Error`1.Exception(System.Action{System.Exception})">
             <summary>
             Takes a lambda what to do if the result failed. Returns the result so 
             that it can be managed in whatevery way is needed.
