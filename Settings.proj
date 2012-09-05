@@ -35,12 +35,12 @@ limitations under the License.
 
 		<!-- Used for display purposes. Should start with a space to look better -->
 		<BuildName></BuildName>
+
 		<!-- Versioning -->
 		<Project_Major>3</Project_Major>
 		<Project_Minor>3</Project_Minor>
 		<Project_Build>1</Project_Build>
-
-		<AssemblyVersion_Build>0</AssemblyVersion_Build> <!-- By default it's (and should be) equal to $(Project_Build) -->
+		<AssemblyVersion_Build>1</AssemblyVersion_Build> <!-- By default it's (and should be) equal to $(Project_Build) -->
 
 		<!-- Project folders -->
 		<BuildScriptsPath Condition="'$(BuildScriptsPath)' ==''">$(RootPath)\buildscripts</BuildScriptsPath>
