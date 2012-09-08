@@ -180,13 +180,13 @@ limitations under the License.
 
 		<MakeDir Directories="$(TestResultsPath)" Condition="'$(TestResultsPath)' != '' And !Exists('$(TestResultsPath)')" />
 
-		<CreateProperty Value="$(TestResultsPath)/nunit-results.xml" Condition="'$(NUnitTestResultXmlFiles)' == ''">
+		<CreateProperty Value='"$(TestResultsPath)/nunit-results.xml"' Condition="'$(NUnitTestResultXmlFiles)' == ''">
 			<Output PropertyName="NUnitTestResultXmlFiles" TaskParameter="Value"/>
 		</CreateProperty>
 
 		<Message Text="Running tests from assemblies: $(TestAssemblies)" />
 
-		<Exec Command="$(NUnitPath)/nunit-console-x86.exe /nologo $(TestAssemblies) /xml=$(NUnitTestResultXmlFiles) /framework=$(TargetFrameworkVersion)" Condition=" '$(TEAMCITY_VERSION)' == '' " />
+		<Exec Command='"$(NUnitPath)/nunit-console-x86.exe" /nologo $(TestAssemblies) /xml=$(NUnitTestResultXmlFiles) /framework=$(TargetFrameworkVersion)' Condition=" '$(TEAMCITY_VERSION)' == '' " />
 
 		<Exec Command="$(MonoShell) $(teamcity_dotnet_nunitlauncher) mono-2.0 x86 NUnit-2.5.5 $(OutputPath)Castle.Core.Tests.dll" Condition="$(MonoShell) != ''" />
 
