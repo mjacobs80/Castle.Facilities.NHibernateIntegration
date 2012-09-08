@@ -109,7 +109,7 @@ limitations under the License.
 		<Exec Command="for /f %%d in ('dir /ad /b') do rd /s /q %%d"
 			WorkingDirectory="$(BuildPath)"
 			Condition=" Exists('$(BuildPath)') "/>
-  		<RemoveDir Directories="$(BuildPath)" Condition=" Exists('$(BuildPath)') "/>
+  		<RemoveDir Directories="$(BuildPath)" Condition=" Exists('$(BuildPath)') " ContinueOnError="true" />
 	</Target>
 
 
