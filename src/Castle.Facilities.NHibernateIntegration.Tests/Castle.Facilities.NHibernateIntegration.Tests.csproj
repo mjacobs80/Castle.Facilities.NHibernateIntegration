@@ -310,7 +310,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EmbeddedResource Include="Issues\Facilities102\facility.xml" />
   </ItemGroup>
   <ItemGroup>
