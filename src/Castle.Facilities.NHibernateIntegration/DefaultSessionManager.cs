@@ -291,6 +291,8 @@ namespace Castle.Facilities.NHibernateIntegration
 					return IsolationLevel.RepeatableRead;
 				case IsolationMode.Serializable:
 					return IsolationLevel.Serializable;
+				case IsolationMode.Snapshot:
+					return IsolationLevel.Snapshot;
 				default:
 					return IsolationLevel.Unspecified;
 			}
