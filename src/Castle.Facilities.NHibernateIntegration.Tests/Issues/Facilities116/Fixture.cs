@@ -110,7 +110,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Issues.Facilities116
 			File.Create("SampleDllFile").Dispose();
 			File.SetLastWriteTime("SampleDllFile", dateTime2);
 			nhConfig = configurationBuilder.GetConfiguration(configuration);
-			Assert.Greater(File.GetLastWriteTime(filename), dateTime2);
+			Assert.Greater(File.GetLastWriteTime(filename), dateTime);
 			Assert.IsNotNull(configuration);
 
 			ConfigureConnectionSettings(nhConfig);
