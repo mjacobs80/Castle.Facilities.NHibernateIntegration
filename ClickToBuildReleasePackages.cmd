@@ -1,6 +1,6 @@
 @ECHO OFF
 REM ****************************************************************************
-REM Copyright 2004-2012 Castle Project - http://www.castleproject.org/
+REM Copyright 2004-2013 Castle Project - http://www.castleproject.org/
 REM Licensed under the Apache License, Version 2.0 (the "License");
 REM you may not use this file except in compliance with the License.
 REM You may obtain a copy of the License at
@@ -16,12 +16,12 @@ REM ****************************************************************************
 
 ECHO This script builds the project in Release configuration
 
-CALL buildscripts\build.cmd NET35 Package
+CALL buildscripts\build.cmd NET45 Package
 
 IF %ERRORLEVEL% NEQ 0 GOTO err
 ECHO **************************************************************
 ECHO The binaries can be found in the following folder:
-ECHO build\NET35\Release\Library
+ECHO build\NET45\Release\Library
 ECHO **************************************************************
 
 CALL buildscripts\build.cmd NET40 Package
@@ -30,6 +30,14 @@ IF %ERRORLEVEL% NEQ 0 GOTO err
 ECHO **************************************************************
 ECHO The binaries can be found in the following folder:
 ECHO build\NET40\Release\Library
+ECHO **************************************************************
+
+CALL buildscripts\build.cmd NET35 Package
+
+IF %ERRORLEVEL% NEQ 0 GOTO err
+ECHO **************************************************************
+ECHO The binaries can be found in the following folder:
+ECHO build\NET35\Release\Library
 ECHO **************************************************************
 
 :err

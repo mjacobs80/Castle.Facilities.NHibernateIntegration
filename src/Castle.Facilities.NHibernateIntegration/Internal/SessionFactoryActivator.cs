@@ -38,8 +38,10 @@ namespace Castle.Facilities.NHibernateIntegration.Internal
 		/// <param name="kernel"></param>
 		/// <param name="onCreation"></param>
 		/// <param name="onDestruction"></param>
-		public SessionFactoryActivator(ComponentModel model, IKernel kernel,
-		                               ComponentInstanceDelegate onCreation, ComponentInstanceDelegate onDestruction)
+		public SessionFactoryActivator(ComponentModel model,
+		                               IKernelInternal kernel,
+		                               ComponentInstanceDelegate onCreation,
+		                               ComponentInstanceDelegate onDestruction)
 			: base(model, kernel, onCreation, onDestruction)
 		{
 		}
@@ -66,7 +68,7 @@ namespace Castle.Facilities.NHibernateIntegration.Internal
 		public override object Create(CreationContext context, Burden burden)
 		{
 			RaiseCreatingSessionFactory();
-			var configuration = Model.ExtendedProperties[Constants.SessionFactoryConfiguration]
+			var configuration = this.Model.ExtendedProperties[Constants.SessionFactoryConfiguration]
 			                    as Configuration;
 			
 			var sessionFactory = configuration.BuildSessionFactory();
