@@ -128,7 +128,7 @@ limitations under the License.
 		DependsOnTargets="RunAllTests;_PreparePackage"
 		>
 
-		<CreateProperty Value="$(ProjectName)-$(BuildConfigKey)-$(Build_Number).zip" Condition="'$(Build_ZipFile)' == ''">
+		<CreateProperty Value="$(ProjectName)-$(BuildConfigKey).zip" Condition="'$(Build_ZipFile)' == ''">
 			<Output PropertyName="Build_ZipFile" TaskParameter="Value"/>
 		</CreateProperty>
 		<CreateProperty Value="$(OutputPath)../$(Build_ZipFile)" Condition="'$(Build_ZipFilePath)' == ''">
