@@ -115,7 +115,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Internals
 
 			ISession session2 = store.FindCompatibleSession(Constants.DefaultAlias);
 
-			Assert.IsNull(session2);
+			Assert.IsNotNull(session2);
 
 			arEvent.Set();
 		}
@@ -202,7 +202,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Internals
 
 			IStatelessSession session2 = store.FindCompatibleStatelessSession(Constants.DefaultAlias);
 
-			Assert.IsNull(session2);
+			Assert.IsNotNull(session2);
 
 			arEvent.Set();
 		}
