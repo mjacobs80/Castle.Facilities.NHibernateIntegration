@@ -1,9 +1,19 @@
-3.3.x
+3.3.3
 ==============
 
-- Updated to NHibernate 3.3.2 GA
-- Updated to Core 3.2.0 and Windsor 3.2.0
-- Updated to Services.Transaction 3.2.0 (custom build) and AutoTx 3.2.0 (custom build)
+- Upgraded libraries to Core 3.3.0 and Windsor 3.3.0
+- Upgraded libraries to Services.Transaction 3.3.0 (custom build) and AutoTx 3.3.0 (custom build)
+- Upgraded libraries to NHibernate 3.3.3 GA
+
+- Fixed CallContextSessionStore to work with async methods.
+
+
+3.3.2
+==============
+
+- Upgraded libraries to Core 3.2.0 and Windsor 3.2.0
+- Upgraded libraries to Services.Transaction 3.2.0 (custom build) and AutoTx 3.2.0 (custom build)
+- Upgraded libraries to NHibernate 3.3.2 GA
 
 
 2.0 RC
