@@ -26,7 +26,7 @@ limitations under the License.
 		Overridable properties
 	-->
 	<PropertyGroup>
-		<Configuration Condition="$(Configuration)=='' or $(Configuration)=='Release'">NET40-Release</Configuration>
+		<Configuration Condition="$(Configuration)=='' or $(Configuration)=='Release'">NET45-Release</Configuration>
 	</PropertyGroup>
 
 	<!-- .NET 4.5 (default) -->
