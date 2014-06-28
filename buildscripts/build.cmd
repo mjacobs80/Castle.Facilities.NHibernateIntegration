@@ -32,11 +32,12 @@ IF /i "%1" == "NET40CP" (SET BuildConfigKey=NET40CP)
 IF /i "%1" == "NET35" (SET FrameworkVersion=v3.5)
 IF /i "%1" == "NET35" (SET BuildConfigKey=NET35)
 
-IF /i "%1" == "MONO26" (SET FrameworkVersion=v3.5)
-IF /i "%1" == "MONO26" (SET BuildConfigKey=MONO26)
 
 IF /i "%1" == "MONO28" (SET FrameworkVersion=v3.5)
 IF /i "%1" == "MONO28" (SET BuildConfigKey=MONO28)
+
+IF /i "%1" == "MONO26" (SET FrameworkVersion=v3.5)
+IF /i "%1" == "MONO26" (SET BuildConfigKey=MONO26)
 
 
 IF /i "%1" == "SL5" (SET FrameworkVersion=v5.0)
@@ -48,7 +49,6 @@ IF /i "%1" == "SL4" (SET FrameworkVersion=v4.0)
 IF /i "%1" == "SL4" (SET BuildConfigKey=SL4)
 IF /i "%1" == "SL40" (SET FrameworkVersion=v4.0)
 IF /i "%1" == "SL40" (SET BuildConfigKey=SL4)
-
 
 
 IF "%2" == "" goto no_target_and_config
@@ -82,7 +82,7 @@ echo Building configuration: %BuildConfiguration%
 SET __MSBUILD_EXE__=%windir%\microsoft.net\framework\v4.0.30319\msbuild.exe
 
 @echo on
-%__MSBUILD_EXE__% /m "%~dp0Build.proj" /p:Platform="Any CPU" /p:BuildConfigKey=%BuildConfigKey% /p:TargetFrameworkVersion=%FrameworkVersion% /ToolsVersion:4.0  /property:Configuration=%BuildConfiguration% /t:%BuildTarget%
+%__MSBUILD_EXE__% /m "%~dp0Build.proj" /p:Platform="Any CPU" /p:BuildConfigKey=%BuildConfigKey% /p:TargetFrameworkVersion=%FrameworkVersion% /ToolsVersion:4.0 /property:Configuration=%BuildConfiguration% /t:%BuildTarget%
 @echo off
 
 IF %ERRORLEVEL% NEQ 0 GOTO err
