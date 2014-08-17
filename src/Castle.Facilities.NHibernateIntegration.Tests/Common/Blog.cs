@@ -33,6 +33,6 @@ namespace Castle.Facilities.NHibernateIntegration.Tests
 
 		public virtual string Name { get; set; }
 
-		public virtual IList Items { get; set; }
+		public virtual IList<BlogItem> Items { get; set; }
 	}
 }

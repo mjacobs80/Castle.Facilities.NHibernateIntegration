@@ -619,6 +619,24 @@ namespace Castle.Facilities.NHibernateIntegration
 			return inner.Save(entityName, obj);
 		}
 
+#if DOTNET40
+		/// <summary>
+		/// Persist the given transient instance, using the given identifier.
+		/// </summary>
+		/// <param name="entityName">The Entity name.</param>
+		/// <param name="obj">a transient instance of a persistent class</param>
+		/// <param name="id">An unused valid identifier</param>
+		/// <exception cref="System.NotImplementedException"></exception>
+		/// <remarks>
+		/// This operation cascades to associated instances if the
+		/// association is mapped with <tt>cascade="save-update"</tt>.
+		/// </remarks>
+		public void Save(string entityName, object obj, object id)
+		{
+			this.inner.Save(entityName, obj, id);
+		}
+#endif
+
 		/// <summary>
 		/// Either <c>Save()</c> or <c>Update()</c> the given instance, depending upon the value of
 		/// its identifier property.
@@ -651,6 +669,24 @@ namespace Castle.Facilities.NHibernateIntegration
 			inner.SaveOrUpdate(entityName, obj);
 		}
 
+#if DOTNET40
+		/// <summary>
+		/// Either <c>Save()</c> or <c>Update()</c> the given instance, depending upon the value of
+		/// its identifier property.
+		/// </summary>
+		/// <param name="entityName">The name of the entity</param>
+		/// <param name="obj">A transient instance containing new or updated state</param>
+		/// <param name="id">Identifier of persistent instance</param>
+		/// <exception cref="System.NotImplementedException"></exception>
+		/// <remarks>
+		/// By default the instance is always saved. This behaviour may be adjusted by specifying
+		/// an <c>unsaved-value</c> attribute of the identifier property mapping
+		/// </remarks>
+		public void SaveOrUpdate(string entityName, object obj, object id)
+		{
+			this.inner.SaveOrUpdate(entityName, obj, id);
+		}
+#endif
 
 		/// <summary>
 		/// Update the persistent instance with the identifier of the given transient instance.
@@ -694,6 +730,25 @@ namespace Castle.Facilities.NHibernateIntegration
 		{
 			inner.Update(entityName, obj);
 		}
+
+#if DOTNET40
+		/// <summary>
+		/// Update the persistent instance associated with the given identifier.
+		/// </summary>
+		/// <param name="entityName">The Entity name.</param>
+		/// <param name="obj">a detached instance containing updated state</param>
+		/// <param name="id">Identifier of persistent instance</param>
+		/// <exception cref="System.NotImplementedException"></exception>
+		/// <remarks>
+		/// If there is a persistent instance with the same identifier,
+		/// an exception is thrown. This operation cascades to associated instances
+		/// if the association is mapped with <tt>cascade="save-update"</tt>.
+		/// </remarks>
+		public void Update(string entityName, object obj, object id)
+		{
+			this.inner.Update(entityName, obj, id);
+		}
+#endif
 
 		/// <summary> 
 		/// Copy the state of the given object onto the persistent object with the same

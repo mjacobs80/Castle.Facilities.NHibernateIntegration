@@ -19,6 +19,7 @@
 
 namespace Castle.Facilities.NHibernateIntegration.Tests.Common
 {
+#if DOTNET35
 	using Iesi.Collections;
 	using NHibernate.Event;
 
@@ -32,4 +33,22 @@ namespace Castle.Facilities.NHibernateIntegration.Tests.Common
 		{
 		}
 	}
+#endif
+
+#if DOTNET40
+	using System.Collections.Generic;
+
+	using NHibernate.Event;
+
+	public class CustomDeleteListener : NHibernate.Event.IDeleteEventListener
+	{
+		public void OnDelete(DeleteEvent @event)
+		{
+		}
+
+		public void OnDelete(DeleteEvent @event, ISet<object> transientEntities)
+		{
+		}
+	}
+#endif
 }

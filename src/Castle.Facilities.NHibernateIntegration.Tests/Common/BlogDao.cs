@@ -21,6 +21,8 @@ namespace Castle.Facilities.NHibernateIntegration.Tests
 {
 	using System;
 	using System.Collections;
+	using System.Collections.Generic;
+
 	using MicroKernel;
 	using NHibernate;
 
@@ -41,7 +43,7 @@ namespace Castle.Facilities.NHibernateIntegration.Tests
 			{
 				Blog blog = new Blog();
 				blog.Name = name;
-				blog.Items = new ArrayList();
+				blog.Items = new List<BlogItem>();
 
 				session.Save(blog);
 
