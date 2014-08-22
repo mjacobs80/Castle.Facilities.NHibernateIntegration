@@ -851,6 +851,8 @@ namespace Castle.Facilities.NHibernateIntegration
 			inner.Persist(entityName, obj);
 		}
 
+#pragma warning disable 0618, 0612
+#if DOTNET35
 		/// <summary>
 		/// Copy the state of the given object onto the persistent object with the same
 		/// identifier. If there is no persistent instance currently associated with
@@ -863,7 +865,7 @@ namespace Castle.Facilities.NHibernateIntegration
 		/// <returns>an updated persistent instance</returns>
 		public object SaveOrUpdateCopy(object obj)
 		{
-			throw new NotImplementedException();
+			return inner.SaveOrUpdateCopy(obj);
 		}
 
 		/// <summary>
@@ -879,8 +881,10 @@ namespace Castle.Facilities.NHibernateIntegration
 		/// <returns>an updated persistent instance</returns>
 		public object SaveOrUpdateCopy(object obj, object id)
 		{
-			throw new NotImplementedException();
+			return inner.SaveOrUpdateCopy(obj, id);
 		}
+#endif
+#pragma warning restore 0618, 0612
 
 		/// <summary>
 		/// Remove a persistent instance from the datastore.
