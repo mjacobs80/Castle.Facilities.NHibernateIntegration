@@ -603,7 +603,7 @@ namespace Castle.Facilities.NHibernateIntegration
 		public Type GetSessionStoreType()
 		{
 			// Default implementation
-			Type sessionStoreType = typeof(CallContextSessionStore);
+			var sessionStoreType = typeof(LogicalCallContextSessionStore);
 
 			if (isWeb)
 				sessionStoreType = typeof(WebSessionStore);
@@ -661,7 +661,5 @@ namespace Castle.Facilities.NHibernateIntegration
 		{
 			return config;
 		}
-
-
 	}
 }

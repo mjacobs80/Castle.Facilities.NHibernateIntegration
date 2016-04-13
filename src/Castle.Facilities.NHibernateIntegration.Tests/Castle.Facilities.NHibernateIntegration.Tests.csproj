@@ -151,12 +151,13 @@
     <Compile Include="Common\TestInterceptor.cs" />
     <Compile Include="Components\NHibernateGenericDaoTestCase.cs" />
     <Compile Include="Components\ReflectionUtilityTests.cs" />
+    <Compile Include="Internals\LogicalCallContextSessionStoreTestCase.cs" />
     <Compile Include="Internals\ConfigurationBuilderTestCase.cs" />
     <Compile Include="Internals\CustomConfigurationBuilderTestCase.cs" />
     <Compile Include="Internals\SessionManagerTestCase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Internals\SessionStoreTestCase.cs">
+    <Compile Include="Internals\CallContextSessionStoreTestCase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Issues\Facilities102\Fixture.cs" />
@@ -271,6 +272,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Issues\Facilities152\facilitynonweb.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Internals\CallContextSessionStoreConfiguration.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(RootPath)\Settings.proj" />
