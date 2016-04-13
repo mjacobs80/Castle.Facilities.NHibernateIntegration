@@ -129,6 +129,7 @@
     <Compile Include="Internal\NHSessionInterceptor.cs" />
     <Compile Include="Internal\StatelessSessionDisposeSynchronization.cs" />
     <Compile Include="Internal\StatelessSessionDelegate.cs" />
+    <Compile Include="SessionStores\LogicalCallContextSessionStore.cs" />
     <Compile Include="Util\FieldInfoCollection.cs">
       <SubType>Code</SubType>
     </Compile>
