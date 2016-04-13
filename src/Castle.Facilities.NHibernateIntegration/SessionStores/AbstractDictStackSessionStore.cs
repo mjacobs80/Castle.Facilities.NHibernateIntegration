@@ -1,19 +1,19 @@
 #region License
 
 //  Copyright 2004-2010 Castle Project - http://www.castleproject.org/
-//  
+//
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
-//  
+//
 //      http://www.apache.org/licenses/LICENSE-2.0
-//  
+//
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-// 
+//
 
 #endregion
 
@@ -26,38 +26,34 @@ namespace Castle.Facilities.NHibernateIntegration.SessionStores
 	using System.Runtime.Remoting.Messaging;
 
 	/// <summary>
-	/// 
+	///
 	/// </summary>
 	public abstract class AbstractDictStackSessionStore : AbstractSessionStore
 	{
-		/// <summary>
-		/// Name used for storage in <see cref="CallContext"/>
-		/// </summary>
-		protected String SlotKey
+		private readonly string _slotKey;
+		private readonly string _statelessSessionSlotKey;
+
+		protected AbstractDictStackSessionStore()
 		{
-			get
-			{
-				if (string.IsNullOrEmpty(slotKey))
-					slotKey = string.Format("nh.facility.stacks.{0}", Guid.NewGuid());
-				return slotKey;
-			}
+			this._slotKey = string.Format("nh.facility.stacks.stateful.{0}", Guid.NewGuid());
+			this._statelessSessionSlotKey = string.Format("nh.facility.stacks.stateless.{0}", Guid.NewGuid());
 		}
 
 		/// <summary>
 		/// Name used for storage in <see cref="CallContext"/>
 		/// </summary>
-		protected String StatelessSessionSlotKey
+		protected string SlotKey
 		{
-			get
-			{
-				if (string.IsNullOrEmpty(this._statelessSessionSlotKey))
-					this._statelessSessionSlotKey = string.Format("nh.facility.stacks.{0}", Guid.NewGuid());
-				return this._statelessSessionSlotKey;
-			}
+			get { return _slotKey; }
 		}
-		
-		private string slotKey;
-		private string _statelessSessionSlotKey;
+
+		/// <summary>
+		/// Name used for storage in <see cref="CallContext"/>
+		/// </summary>
+		protected string StatelessSessionSlotKey
+		{
+			get { return this._statelessSessionSlotKey; }
+		}
 
 		/// <summary>
 		/// Gets the stack of <see cref="SessionDelegate"/> objects for the specified <paramref name="alias"/>.
@@ -69,7 +65,7 @@ namespace Castle.Facilities.NHibernateIntegration.SessionStores
 		{
 			if (alias == null) throw new ArgumentNullException("alias");
 
-			IDictionary alias2Stack = GetDictionary();
+			var alias2Stack = GetDictionary();
 
 			if (alias2Stack == null)
 			{
@@ -78,7 +74,7 @@ namespace Castle.Facilities.NHibernateIntegration.SessionStores
 				StoreDictionary(alias2Stack);
 			}
 
-			Stack stack = alias2Stack[alias] as Stack;
+			var stack = alias2Stack[alias] as Stack;
 
 			if (stack == null)
 			{
@@ -113,7 +109,7 @@ namespace Castle.Facilities.NHibernateIntegration.SessionStores
 		{
 			if (alias == null) throw new ArgumentNullException("alias");
 
-			IDictionary alias2Stack = GetStatelessSessionDictionary();
+			var alias2Stack = GetStatelessSessionDictionary();
 
 			if (alias2Stack == null)
 			{
@@ -122,7 +118,7 @@ namespace Castle.Facilities.NHibernateIntegration.SessionStores
 				StoreStatelessSessionDictionary(alias2Stack);
 			}
 
-			Stack stack = alias2Stack[alias] as Stack;
+			var stack = alias2Stack[alias] as Stack;
 
 			if (stack == null)
 			{
