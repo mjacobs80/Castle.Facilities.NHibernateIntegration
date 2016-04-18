@@ -35,8 +35,8 @@ namespace Castle.Facilities.NHibernateIntegration.SessionStores
 
 		protected AbstractDictStackSessionStore()
 		{
-			this._slotKey = string.Format("nh.facility.stacks.stateful.{0}", Guid.NewGuid());
-			this._statelessSessionSlotKey = string.Format("nh.facility.stacks.stateless.{0}", Guid.NewGuid());
+			this._slotKey = string.Format("nh.facility.stacks.session.{0}", Guid.NewGuid());
+			this._statelessSessionSlotKey = string.Format("nh.facility.stacks.statelessSession.{0}", Guid.NewGuid());
 		}
 
 		/// <summary>
