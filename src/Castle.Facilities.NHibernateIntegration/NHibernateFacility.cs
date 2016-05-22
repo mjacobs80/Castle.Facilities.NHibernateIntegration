@@ -416,10 +416,10 @@ namespace Castle.Facilities.NHibernateIntegration
 		}
 
 		/// <summary>
-		/// Sets a custom <c>ISessionStore</c> of the facility.
+		/// Sets a custom <see cref="ISessionStore" /> for the facility.
 		/// </summary>
-		/// <typeparam name="T">The implementation type of the <c>ISessionStore</c>.</typeparam>
-		/// <returns><c>NHibernateFacility</c></returns>
+		/// <typeparam name="T">The implementation type of the <see cref="ISessionStore" />.</typeparam>
+		/// <returns><see cref="NHibernateFacility" /></returns>
 		public NHibernateFacility SessionStore<T>() where T : ISessionStore
 		{
 			facilitySettingConfig.SessionStore(typeof(T));
