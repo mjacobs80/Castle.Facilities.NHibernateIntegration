@@ -43,7 +43,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy Castle.Facilities.NHibernateIntegratio build output'
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\Castle.Facilities.NHibernateIntegratio\bin\NET45-Release'
+    SourceFolder: '$(Build.SourcesDirectory)\src\Castle.Facilities.NHibernateIntegration\bin\NET45-Release'
     Contents: '**\Castle.Facilities.NHibernateIntegration.*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\Castle.Facilities.NHibernateIntegration\build-output'
     CleanTargetFolder: true
