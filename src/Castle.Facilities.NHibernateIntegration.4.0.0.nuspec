@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Castle.Facilities.NHibernateIntegration</id>
+    <version>4.0.0</version>
+    <title>Castle.Facilities.NHibernateIntegration</title>
+    <authors>Castle Project Contributors</authors>
+    <owners>Castle Project</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The NHibernate Facility enables the usage of NHibernate O/R framework for your components.</description>
+    <releaseNotes>Updated to run against NHibernate 3.3.2 and Castle 3.3 and is built from the 4.0.x fork on github by Mark Jacobs. https://github.com/mjacobs80/Castle.Facilities.NHibernateIntegration</releaseNotes>
+    <copyright>Copyright 2004-2019 Castle Project - http://www.castleproject.org/</copyright>
+    <dependencies>
+      <dependency id="Castle.Core" version="3.3.0" />
+      <dependency id="Castle.Windsor" version="3.3.0" />
+      <dependency id="Castle.Services.Transaction" version="3.3.0" />
+      <dependency id="NHibernate" version="4.0.0.400" />
+    </dependencies>
+    <tags>Castle NHibernate</tags>
+  </metadata>
+  <files>
+    <file src="Castle.Facilities.NHibernateIntegration\build-output\*.dll" target="lib\net40" />
+    <file src="Castle.Facilities.NHibernateIntegration\build-output\*.pdb" target="lib\net40" />
+    <file src="Castle.Facilities.NHibernateIntegration\build-output\*.xml" target="lib\net40" />
+    <file src="Castle.Facilities.NHibernateIntegration\src\**\*.cs" target="src" />
+  </files>
+</package>

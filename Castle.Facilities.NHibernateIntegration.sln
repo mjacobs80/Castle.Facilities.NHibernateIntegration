@@ -1,9 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4850DCAD-4122-4D91-A33C-31ED7B3006BF}"
 	ProjectSection(SolutionItems) = preProject
+		src\Castle.Facilities.NHibernateIntegration.4.0.0.nuspec = src\Castle.Facilities.NHibernateIntegration.4.0.0.nuspec
 		Changes.txt = Changes.txt
 		License.txt = License.txt
 		Readme.txt = Readme.txt
@@ -52,5 +53,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FED8CACA-D619-4CE1-BCA3-A83E802DBA88}
 	EndGlobalSection
 EndGlobal
